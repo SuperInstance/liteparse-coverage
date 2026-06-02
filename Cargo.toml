@@ -1,0 +1,25 @@
+[package]
+name = "liteparse-coverage"
+version = "0.1.0"
+edition = "2021"
+description = "Topological coverage analysis for liteparse: find the holes in document format parsing using negative-space-testing"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/SuperInstance/liteparse-coverage"
+keywords = ["testing", "coverage", "liteparse", "topology", "negative-space"]
+categories = ["development-tools::testing"]
+
+[dependencies]
+negative-space-testing = "0.1"
+liteparse = { version = "2", optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
+serde_json = { version = "1", optional = true }
+
+[features]
+default = []
+liteparse-integration = ["dep:liteparse", "dep:serde", "dep:serde_json"]
+
+[dev-dependencies]
+liteparse = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tempfile = "3"
